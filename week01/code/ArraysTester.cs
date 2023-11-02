@@ -32,24 +32,29 @@ public static class ArraysTester {
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
-   private static double[] MultiplesOf(double number, int length)
+private static double[] MultiplesOf(double number, int length)
 {
+    // Check if the 'length' is less than or equal to 0
     if (length <= 0)
     {
-       
+        // If 'length' is non-positive, return an empty double array
         return new double[0]; 
     }
 
-  
+    // Create a list to store the multiples of the given 'number'
     List<double> multiples = new List<double>();
 
+    // Iterate through numbers from 1 to 'length'
     for (int i = 1; i <= length; i++)
     {
-       
+        // Calculate the multiple by multiplying 'number' with 'i'
         double multiple = number * i;
+        
+        // Add the calculated multiple to the list
         multiples.Add(multiple);
     }
 
+    // Convert the list of multiples to a double array and return it
     return multiples.ToArray();
 }
     
