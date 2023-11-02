@@ -32,15 +32,26 @@ public static class ArraysTester {
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
-    private static double[] MultiplesOf(double number, int length)
+   private static double[] MultiplesOf(double number, int length)
+{
+    if (length <= 0)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-
-        return new double[0]; // replace this return statement with your own
+       
+        return new double[0]; 
     }
+
+  
+    List<double> multiples = new List<double>();
+
+    for (int i = 1; i <= length; i++)
+    {
+       
+        double multiple = number * i;
+        multiples.Add(multiple);
+    }
+
+    return multiples.ToArray();
+}
     
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -50,12 +61,26 @@ public static class ArraysTester {
     /// <br /><br />
     /// Because a list is dynamic, this function will modify the existing <c>data</c> list rather than returning a new list.
     /// </summary>
-    private static void RotateListRight(List<int> data, int amount)
+   private static void RotateListRight(List<int> data, int amount)
+{
+    if (amount >= 1 && amount <= data.Count)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Calculate the index where the list will be split.
+        int splitIndex = data.Count - amount;
+        
+        // Get the first part of the list.
+        List<int> firstPart = data.GetRange(splitIndex, amount);
 
+        // Get the second part of the list.
+        List<int> secondPart = data.GetRange(0, splitIndex);
+
+        // Concatenate the two parts to form the rotated list.
+        firstPart.AddRange(secondPart);
+
+        // Update the original list with the rotated list.
+        data.Clear();
+        data.AddRange(firstPart);
     }
+    // If the value of 'amount' is not in the valid range, no rotation will be performed.
+}
 }
