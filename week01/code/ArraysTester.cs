@@ -32,6 +32,17 @@ public static class ArraysTester {
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
+
+
+/// The process for generating the list of multiples is as follows:
+/// 1. Check if the specified 'length' is non-positive. If so, return an empty array.
+/// 2. Create a List to store the multiples.
+/// 3. Iterate through numbers from 1 to 'length'.
+/// 4. In each iteration, calculate the multiple by multiplying 'number' by the current index.
+/// 5. Add the calculated multiple to the list.
+/// 6. After all multiples have been calculated and added to the list, convert the list to a double array.
+/// 7. Return the array of multiples as the result.
+    
 private static double[] MultiplesOf(double number, int length)
 {
     // Check if the 'length' is less than or equal to 0
@@ -66,6 +77,17 @@ private static double[] MultiplesOf(double number, int length)
     /// <br /><br />
     /// Because a list is dynamic, this function will modify the existing <c>data</c> list rather than returning a new list.
     /// </summary>
+    /// 
+
+
+    /// The process for rotating the list is as follows:
+/// 1. Check if 'amount' is within a valid range (between 1 and the size of the list).
+/// 2. Calculate the index at which the list will be split to form two parts.
+/// 3. Get the first part of the list from the split index to the end.
+/// 4. Get the second part of the list from the beginning to the split index.
+/// 5. Concatenate the first and second parts to form the rotated list.
+/// 6. Clear the original list.
+/// 7. Add all elements from the rotated list back to the original list.
    private static void RotateListRight(List<int> data, int amount)
 {
     if (amount >= 1 && amount <= data.Count)
